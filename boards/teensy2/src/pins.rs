@@ -47,6 +47,7 @@ avr_hal_generic::impl_board_pins! {
         pub c6: portc::pc6::PC6,
         /// `D6`
         ///
+        /// Led
         /// * **PWM**: [atmega32u4_hal::timer::Timer4Pwm]
         /// * `OC4D`: Output Compare Channel `D` for Timer/Counter4
         pub d6: portd::pd6::PD6,
@@ -70,11 +71,11 @@ avr_hal_generic::impl_board_pins! {
         pub b6: portb::pb6::PB6,
         /// `RX`
         ///
-        /// Led for indicating inbound data.  Also the CS pin.
+        ///
         pub b0: portb::pb0::PB0,
         /// `TX`
         ///
-        /// Led for indicating outbound data
+        ///
         pub d5: portd::pd5::PD5,
         /// `SCLK`
         ///

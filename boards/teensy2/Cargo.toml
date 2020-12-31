@@ -11,6 +11,7 @@ rt = ["atmega32u4-hal/rt"]
 [dependencies]
 atmega32u4-hal = { path = "../../chips/atmega32u4-hal/" }
 avr-hal-generic = { path = "../../avr-hal-generic/" }
+embedded-hal = "*"
 
 [dev-dependencies]
 panic-halt = "0.2.0"

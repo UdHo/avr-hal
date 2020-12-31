@@ -3,17 +3,17 @@
 #![feature(abi_avr_interrupt)]
 
 extern crate panic_halt;
-use sparkfun_pro_micro::prelude::*;
+use teensy2::prelude::*;
 
 // This pin will be used from the interrupt handler
-use sparkfun_pro_micro::hal::port;
+use teensy2::hal::port;
 static mut PIN: Option<port::portd::PD0<port::mode::Output>> = None;
 
-#[sparkfun_pro_micro::entry]
+#[teensy2::entry]
 fn main() -> ! {
-    let dp = sparkfun_pro_micro::Peripherals::take().unwrap();
+    let dp = teensy2::Peripherals::take().unwrap();
 
-    let mut pins = sparkfun_pro_micro::Pins::new(dp.PORTB, dp.PORTC, dp.PORTD, dp.PORTE, dp.PORTF);
+    let mut pins = teensy2::Pins::new(dp.PORTB, dp.PORTC, dp.PORTD, dp.PORTE, dp.PORTF);
 
     let mut led0 = pins.led_rx.into_output(&mut pins.ddr);
     let mut led1 = pins.led_tx.into_output(&mut pins.ddr);
@@ -50,7 +50,7 @@ fn main() -> ! {
     loop {
         led0.toggle().void_unwrap();
         led1.toggle().void_unwrap();
-        sparkfun_pro_micro::delay_ms(300);
+        teensy2::delay_ms(300);
     }
 }
 

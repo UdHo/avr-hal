@@ -3,6 +3,7 @@
 
 extern crate panic_halt;
 
+//use hal::pac::{CorePeripherals, Peripherals};
 use teensy2::prelude::*;
 
 #[teensy2::entry]
@@ -15,6 +16,8 @@ fn main() -> ! {
     //    let mut led1 = pins.led_tx.into_output(&mut pins.ddr);
 
     led0.set_high().void_unwrap();
+
+    //    let mut core = dp::take().unwrap();
 
     let mut time: u16 = 0;
     loop {
